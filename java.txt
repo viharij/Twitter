@@ -1,0 +1,63 @@
+<div id="notificationsBody" class="notifications">> 
+                                        <c:forEach var="messages" items="${notifications.fields}">
+
+                                            <p:column>#{messages} Messaged you</p:column>
+                                            <br></br>
+
+                                        </c:forEach>
+
+                                    </div>
+
+
+
+ <script type="text/javascript" >
+            $(document).ready(function ()
+            {
+                $("#notificationLink").click(function ()
+                {
+                    $("#notificationContainer").fadeToggle(300);
+                    $("#notification_count").fadeOut("slow");
+
+                    return false;
+                });
+
+                //Document Click hiding the popup 
+                $(document).click(function ()
+                {
+                    $("#notificationContainer").hide();
+
+                });
+
+                //Popup on click
+                $("#notificationContainer").click(function ()
+                {
+                    return false;
+                });
+
+            });
+        </script>
+
+
+
+<li id="notification_li">
+                                <span id="notification_count">3</span>
+                                <a href="#" id="notificationLink">Notifications</a><b><div style="color: blue">Notifications</div></b>
+
+                                <div id="notificationContainer">
+                                    <div id="notificationTitle">Notifications</div>
+                                    <!--    <div id="notificationsBody" class="notifications"></div> -->
+
+                                    <div id="notificationsBody" class="notifications">> 
+                                        <c:forEach var="messages" items="${notifications.fields}">
+
+                                            <p:column>#{messages} Messaged you</p:column>
+                                            <br></br>
+
+                                        </c:forEach>
+
+                                    </div>
+                                    <div id="notificationFooter"><a href="notifications.xhtml">See All</a></div>
+                                </div>
+
+                            </li>
+
